@@ -1,0 +1,29 @@
+name: Image Builds
+
+on:
+  push:
+    paths:
+      - ".github/workflows/image-builds.yaml"
+      - "src/**"
+  schedule:
+    - cron: "0 2 * * 6"
+
+jobs:
+  docker-builds:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Registry login
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: Build & push
+        working-directory: ./src
+        run: |
+          docker-compose build 
+          docker-compose push 
