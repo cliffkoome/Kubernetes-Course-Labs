@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: web
+          image: widgetario/web:3.0.0
+          ports:
+            - containerPort: 80
+          env:
+            - name: PRODUCTS_API_URL
+              value: http://products-api:8080
+            - name: STOCK_API_URL
+              value: http://stock-api:8080
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
