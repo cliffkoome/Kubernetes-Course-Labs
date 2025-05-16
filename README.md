@@ -34,14 +34,28 @@ Widgetario is a fictitious gadget retailer. This repository contains a step-by-s
 │   └── products-api/service.yaml
 
 ├── part-5/ # Probes & Security contexts
-│   └── ...
+│   ├── products-db/
+│   ├── products-api/
+│   └── stock-api/
+│   └── web/
+│   └── ingress.yaml/
 
 ├── part-6/ # Monitoring & Logging
-│   └── ...
+│   └── logging/
+│   └── monitoring/
+│   ├── products-db/
+│   ├── products-api/
+│   └── stock-api/
+│   └── web/
+│   └── ingress.yaml/
 
 ├── part-7/ # Helm chart & CI/CD
 │   └── helm-chart/
-│       └── ...
+│   └── infrastructure/
+│   └── jekinsfile/
+
+├── Scripts
+│   └── test.sh/
 
 ├── hackathon/files/ # Dashboards, values files, scripts
 └── README.md # This file
@@ -80,12 +94,10 @@ kubectl apply -f part-1/products-api/
 kubectl apply -f part-1/stock-api/
 kubectl apply -f part-1/web/
 kubectl port-forward svc/web 8080:80
-# Browse http://localhost:8080
 `
 
 ## Part 2 – Configuration
 `
-# Create Secrets & ConfigMaps, then:
 kubectl apply -f part-2/products-db/
 kubectl apply -f part-2/products-api/
 kubectl apply -f part-2/stock-api/
@@ -103,8 +115,6 @@ kubectl apply -f part-3/stock-api/
 ## Part 4 – Ingress
 `
 kubectl apply -f part-4/ingress.yaml
-# Update /etc/hosts or Windows hosts:
-#   127.0.0.1 widgetario.local api.widgetario.local
 curl http://widgetario.local
 curl http://api.widgetario.local/products
 `
