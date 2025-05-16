@@ -18,11 +18,13 @@ Widgetario is a fictitious gadget retailer. This repository contains a step-by-s
 │   ├── products-api/
 │   ├── stock-api/
 │   └── web/
+
 ├── part-2/ # ConfigMaps & Secrets
 │   ├── products-db/
 │   ├── products-api/
 │   ├── stock-api/
 │   └── web/
+
 ├── part-3/ # StatefulSets & Volumes
 │   ├── products-db/
 │   ├── products-api/
@@ -30,13 +32,17 @@ Widgetario is a fictitious gadget retailer. This repository contains a step-by-s
 ├── part-4/ # Ingress YAMLs
 │   ├── ingress.yaml
 │   └── products-api/service.yaml
+
 ├── part-5/ # Probes & Security contexts
 │   └── ...
+
 ├── part-6/ # Monitoring & Logging
 │   └── ...
+
 ├── part-7/ # Helm chart & CI/CD
 │   └── helm-chart/
 │       └── ...
+
 ├── hackathon/files/ # Dashboards, values files, scripts
 └── README.md # This file
 
